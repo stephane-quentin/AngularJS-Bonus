@@ -1,0 +1,33 @@
+<form name="myForm">
+  <p><label for="user">Nom:</label>
+  <input type="text" name="user" ng-model="user" minlength='5' required>
+  <span style="color:red">
+    <span ng-show="myForm.user.$error.required">Le nom est requis.</span>
+    <span ng-show="myForm.user.$error.minlength">Trop court.</span>
+  </span></p>
+  <p><label for="email">Email:</label>
+  <input type="email" name="email" ng-model="email" placeholder="Email" required>
+  <span style="color:red">
+    <span ng-show="myForm.email.$error.email">Mauvais mail</span>
+    <span ng-show="myForm.email.$error.required">Requis</span>
+  </span></p>
+  <p><label for="subject">Sujet:</label>
+  <input type="text" name="subject" ng-model="subject" required>
+  <span style="color:red">
+    <span ng-show="myForm.subject.$error.required">Le sujet est requis.</span>
+  </span></p>
+  <p><label for="text">Message (20 caractères minimum):</label>
+  <textarea name="text" rows="10" cols="50" minlength='20' ng-model="text" required></textarea>
+  <div>
+  <span style="color:red">
+    <span ng-show="myForm.text.$error.required">Le message est requis.</span>
+    <span ng-show="myForm.text.$error.minlength">Trop court.</span>
+  </span></p>
+  </div>
+  <button type="button" name="button" ng-click="sendData()">Envoyer</button>
+</form>
+<ul>
+  <!-- on boucle dans le tableau subjectList grace à la directive ng-repeat
+  $index nous sert à récupérer les lignes d'un tableau -->
+  <li ng-repeat="subject in subjectList"><a href="#!/view/{{$index}}">{{subject}}</a></li>
+</ul>

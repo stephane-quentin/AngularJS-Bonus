@@ -1,0 +1,19 @@
+<!doctype html>
+<html ng-app>
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.5/angular.min.js"></script>
+</head>
+<body>
+  <form name="myForm">
+    <label>Mail:</label>
+    <input type="email" name="email" ng-model="email" placeholder="Email" required>
+    <div style="color:red" ng-show="myForm.email.$invalid">
+      <span ng-show="myForm.email.$error.email">Mauvais mail</span>
+      <span ng-show="myForm.email.$error.required">Requis</span>
+    </div>
+    <div style="color:green" ng-show="myForm.email.$valid">
+      <span>Bon mail</span>
+    </div>
+  </form>
+</body>
+</html>
